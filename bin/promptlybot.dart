@@ -20,7 +20,12 @@ Future<void> main() async {
   teledart.onCommand('start').listen((message) {
     final keyboard = ReplyKeyboardMarkup(
       keyboard: [
-        [KeyboardButton(text: 'Старт')]
+        [KeyboardButton(text: 'Старт')],
+        [
+          KeyboardButton(text: 'Тест 1'),
+          KeyboardButton(text: 'Тест 2'),
+          KeyboardButton(text: 'Тест 3'),
+        ]
       ],
       resizeKeyboard: true,
     );
@@ -36,6 +41,12 @@ Future<void> main() async {
     final text = message.text ?? '';
     if (text.trim().toLowerCase() == 'старт') {
       teledart.sendMessage(message.chat.id, 'Кнопка "Старт" нажата');
+    } else if (text.trim().toLowerCase() == 'тест 1') {
+      teledart.sendMessage(message.chat.id, 'Нажата Тест 1');
+    } else if (text.trim().toLowerCase() == 'тест 2') {
+      teledart.sendMessage(message.chat.id, 'Нажата Тест 2');
+    } else if (text.trim().toLowerCase() == 'тест 3') {
+      teledart.sendMessage(message.chat.id, 'Нажата Тест 3');
     }
   });
 }
